@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+	helper_method :sort_column, :sort_direction
 	def index				
 		@welcome_message = 'Welcome to ruby on rails'
 		@ror_title = 'Ruby on Rails for beginners 2017'
@@ -17,6 +18,7 @@ class HomeController < ApplicationController
 
 	def products	
 		@products = Product.all
+		@products = Product.order(sort_column + " " + sort_direction)
 	end
 
 	def about
@@ -25,5 +27,15 @@ class HomeController < ApplicationController
 		Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
 		Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
 		Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+	end
+
+	private
+
+	def sort_column
+		params[:sort] || "price"		
+	end
+
+	def sort_direction
+		params[:direction] || "desc"		
 	end
 end
