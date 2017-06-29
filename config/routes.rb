@@ -8,7 +8,13 @@ Rails.application.routes.draw do
   get '/test' => 'home#test'
   # get se koristi za ostale stranice, a root za home
 
-  get '/products' => 'home#products'
+  # get '/products' => 'home#products'
   get '/about' => 'home#about'
 
+  resources :products
+  # Ovo se najcesce koristi
+
+  # resources :products, only: [:index, :edit, :new]
+  # resources :products, except: [:index]
+  # Ako hocemo samo neke pojedinacne/ako hocemo sve osim neke
 end
