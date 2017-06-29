@@ -1,8 +1,4 @@
-<style>
-	.active {
-		background: red;
-	}
-</style>
+<style></style>
 
 <!DOCTYPE html>
 <html>
@@ -20,6 +16,7 @@
   <body>
   	<ol class="breadcrumb">
   	<li class="<%= 'active' if params[:action] == 'index' %>"><%= link_to 'Home', root_path %></li>
+  	<li class="<%= 'active' if params[:action] == 'index' %>"><%= link_to 'About', about_path %></li>
   	<li class="<%= 'active' if params[:action] == 'index' %>"><%= link_to 'Test', test_path %></li>
   	<li class="<%= 'active' if params[:action] == 'index' %>"><%= link_to 'Products', products_path %></li>
 		<!-- <li class="active"></li> -->

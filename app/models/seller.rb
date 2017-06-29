@@ -1,5 +1,5 @@
 class Seller < ApplicationRecord
-	has_many :products, dependent: :destroy
+	has_many :products, dependent: :destroy 
 	# ovaj dependet destroy je soft delete
 	# ide mnozina (products), jer ima vise produkata
 	# validates  :name, presence: true

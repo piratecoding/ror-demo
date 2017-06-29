@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   # get se koristi za ostale stranice, a root za home
 
   get '/products' => 'home#products'
+  get '/about' => 'home#about'
 
 end
