@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   # get '/products' => 'home#products'
   get '/about' => 'home#about'
 
-  resources :products
+  resources :products, :sellers
   # Ovo se najcesce koristi
 
   # resources :products, only: [:index, :edit, :new]

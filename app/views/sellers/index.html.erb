@@ -1,0 +1,32 @@
+<h1>All sellers</h1>
+<%= link_to 'Create new seller', new_seller_path, class: 'btn btn-primary' %>
+<br>
+
+<% unless flash[:notice].blank? %>
+  <div class="alert alert-success">
+    <p><%= flash[:notice] %></p>
+  </div>
+<% end %>
+
+<table class="table table-condensed">
+  <thead>
+    <tr>
+    	<th><%= sortable "id" %></th>
+      <th><%= sortable "name" %></th>
+      <th><%= sortable "rating" %></th>
+    </tr>
+  </thead>
+
+ <tbody>
+   <% @sellers.each do |seller| %>
+     <tr>
+     	<td><%= seller.id %></td>
+      <td><%= link_to seller.name, seller_path(seller) %></td>
+      <td><%= seller.rating %></td>
+      <td>
+        <%= link_to 'Edit', edit_seller_path(seller), class: 'btn btn-sm btn-primary' %>
+        <%= link_to 'Delete', seller_path(seller), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-sm btn-danger' %>
+      </td>
+     </tr>
+   <% end %>
+ </tbody>
