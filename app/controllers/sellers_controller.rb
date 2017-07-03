@@ -7,13 +7,13 @@ class SellersController < ApplicationController
 	end
 
 	def new
-		@sellers = Seller.new		
+		@seller = Seller.new		
 	end
 
 	def create
-		@sellers = Seller.new(seller_params)
+		@seller = Seller.new(seller_params)
 
-		if @sellers.save
+		if @seller.save
 			flash[:notice] = 'Seller created successfully!'
 			redirect_to sellers_path
 		else

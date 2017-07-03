@@ -4,4 +4,17 @@ module ApplicationHelper
 		direction = column == sort_column && sort_direction == "asc" ? "desc" : "asc"
 		link_to title, :sort => column, :direction => direction
 	end
+
+	def error_for(attribute, errors, &block)
+		if errors[attribute].any? 
+			content_tag :p, nil, class: 'validation-error' do 
+				yield("#{parse_attribute(attribute)} #{errors[attribute][0]}") if block_given?	
+				"#{parse_attribute(attribute)} #{errors[attribute][0]}"
+			end
+		end
+	end
+
+	def parse_attribute(attribute)
+		attribute.to_s.capitalize.split('_').join(' ')
+	end
 end

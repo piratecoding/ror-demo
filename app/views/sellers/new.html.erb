@@ -4,7 +4,7 @@
 		<br>
 		<h1>Create new seller</h1>
 		<br>
-		<% if @sellers.errors.any? %>
+		<% if @seller.errors.any? %>
 			<div class="alert alert-danger">
 				<% @seller.errors.full_messages.each do |error| %>
 					<p><%= error %></p>
@@ -12,7 +12,7 @@
 			</div>
 		<% end %>
 
-		<%=  form_for @sellers do |form| %>
+		<%=  form_for @seller do |form| %>
 			<%= form.label :name %>
 			<%= form.text_field :name, class: 'form-control' %>
 			<br>
