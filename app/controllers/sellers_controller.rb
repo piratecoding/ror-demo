@@ -1,5 +1,6 @@
 class SellersController < ApplicationController
 	helper_method :sort_column, :sort_direction
+	before_action :find_seller, { only: [:edit, :update, :show, :destroy] }
 
 	def index
 		@sellers = Seller.all
@@ -22,11 +23,9 @@ class SellersController < ApplicationController
 	end
 
 	def edit
-		@seller = Seller.find(params[:id])
 	end
 
 	def update
-		@seller = Seller.find(params[:id])
 
 		if @seller.update(seller_params)
 			redirect_to sellers_path
@@ -36,17 +35,19 @@ class SellersController < ApplicationController
 	end
 
 	def show
-		@seller = Seller.find(params[:id])
 	end
 
 	def destroy
-		@seller = Seller.find(params[:id])
 		@seller.destroy
 		flash[:notice] = 'Seller deleted successfully!'
 		redirect_to sellers_path		
 	end
 
 	private
+
+	def find_product
+		@seller = Seller.find(params[:id])		
+	end
 
 	def seller_params
 		params.require(:seller).permit(:name, :rating);		

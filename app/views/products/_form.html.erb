@@ -5,6 +5,10 @@
 		<strong><%= message %></strong>
 	<% end %>
 	<br>
+	<%= form.label :category %>
+	<%= form.collection_select :category_id, Category.all, :id, :name, { prompt: 'Choose category' }, class: 'form-control' %>
+		<%= error_for :category, @product.errors %>
+	<br>
 	<%= form.label :price %>
 	<%= form.text_field :price, class: 'form-control' %>
 		<%= error_for :price, @product.errors %>
