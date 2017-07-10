@@ -3,8 +3,8 @@ class ProductsController < ApplicationController
 	before_action :find_product, { only: [:edit, :update, :show, :destroy] }
 
 	def index
-	@products = Product.all
-	@products = Product.order(sort_column + " " + sort_direction)
+		@products = Product.all
+		@products = Product.order(sort_column + " " + sort_direction)
 	end
 
 	def new

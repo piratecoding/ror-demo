@@ -3,7 +3,7 @@
 	<%= form.text_field :name, class: 'form-control' %>
 	<%= error_for :name, @product.errors do |message| %>
 		<strong><%= message %></strong>
-	<% end %>
+		<% end %>
 	<br>
 	<%= form.label :category %>
 	<%= form.collection_select :category_id, Category.all, :id, :name, { prompt: 'Choose category' }, class: 'form-control' %>

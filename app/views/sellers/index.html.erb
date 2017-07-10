@@ -11,16 +11,14 @@
 <table class="table table-condensed">
   <thead>
     <tr>
-    	<th><%= sortable "id" %></th>
-      <th><%= sortable "name" %></th>
-      <th><%= sortable "rating" %></th>
+      <th><%= sortable "Name" %></th>
+      <th><%= sortable "Rating" %></th>
     </tr>
   </thead>
 
  <tbody>
    <% @sellers.each do |seller| %>
      <tr>
-     	<td><%= seller.id %></td>
       <td><%= link_to seller.name, seller_path(seller) %></td>
       <td><%= seller.rating %></td>
       <td>
@@ -29,4 +27,5 @@
       </td>
      </tr>
    <% end %>
- </tbody>
+  </tbody>
+</table>

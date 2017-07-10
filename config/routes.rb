@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :categories
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "home#index"
 
@@ -12,7 +11,11 @@ Rails.application.routes.draw do
   # get '/products' => 'home#products'
   # get '/about' => 'home#about'
   resource :about, only: [:show]
-  resources :products, :sellers
+  resources :products
+  resources :sellers do
+    resources :products, :categories
+  end
+  resources :categories
   # Ovo se najcesce koristi
 
   # resources :products, only: [:index, :edit, :new]

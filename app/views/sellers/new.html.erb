@@ -4,23 +4,10 @@
 		<br>
 		<h1>Create new seller</h1>
 		<br>
-		<% if @seller.errors.any? %>
-			<div class="alert alert-danger">
-				<% @seller.errors.full_messages.each do |error| %>
-					<p><%= error %></p>
-				<% end %>
-			</div>
-		<% end %>
+		
+		<% render 'shared/validation message', model: @seller %>
 
-		<%=  form_for @seller do |form| %>
-			<%= form.label :name %>
-			<%= form.text_field :name, class: 'form-control' %>
-			<br>
-			<%= form.label :rating %>
-			<%= form.text_field :rating, class: 'form-control' %>
-			<br>
-			<%= form.submit 'Save', class: 'btn btn-block btn-default' %>
-		<% end %>
+		<% render 'form' %>
 
 	</div>
 </div>

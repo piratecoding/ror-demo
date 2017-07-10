@@ -26,7 +26,6 @@ class SellersController < ApplicationController
 	end
 
 	def update
-
 		if @seller.update(seller_params)
 			redirect_to sellers_path
 		else
@@ -45,12 +44,12 @@ class SellersController < ApplicationController
 
 	private
 
-	def find_product
-		@seller = Seller.find(params[:id])		
-	end
-
 	def seller_params
 		params.require(:seller).permit(:name, :rating);		
+	end
+
+	def find_product
+		@seller = Seller.find(params[:id])		
 	end
 
 	def sort_column

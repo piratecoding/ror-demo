@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  helper_method :sort_column, :sort_direction
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   # GET /categories
@@ -70,5 +71,13 @@ class CategoriesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
       params.require(:category).permit(:name, :description)
+    end
+
+    def sort_column
+    params[:sort] || "name"   
+    end
+
+    def sort_direction
+    params[:direction] || "desc"  
     end
 end
