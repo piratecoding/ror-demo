@@ -48,7 +48,7 @@ class SellersController < ApplicationController
 		params.require(:seller).permit(:name, :rating);		
 	end
 
-	def find_product
+	def find_seller
 		@seller = Seller.find(params[:id])		
 	end
 

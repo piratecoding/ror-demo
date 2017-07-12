@@ -7,3 +7,12 @@
 	<p><%= @seller.rating %></p>
 	</div>
 </div>
+<b>Products selling:</b>
+<% @seller.products.each do |product| %>
+    <p>        
+        <%= product.name %>
+    </p>
+<% end %>
+
+<%= link_to 'Edit', edit_seller_path(@seller) %> |
+<%= link_to 'Back', sellers_path %>

@@ -13,9 +13,14 @@
 
 <p>
 	List of products: 
-	<%= link_to 'Products', products_path %>
+	<% @category.products.each do |product| %>
+    <p>
+        <%= product.name %>
+    </p>
+	<% end %>
 </p>
 
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>
+
