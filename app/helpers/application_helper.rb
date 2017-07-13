@@ -1,4 +1,13 @@
 module ApplicationHelper
+
+	def display_flash(type)
+		if flash[type]
+			content_tag :div, nil, class: 'alert alert-success' do
+				content_tag :p, flash[type]
+			end
+		end
+	end
+
 	def sortable(column, title = nil)
 		title ||= column.titleize
 		direction = column == sort_column && sort_direction == "asc" ? "desc" : "asc"

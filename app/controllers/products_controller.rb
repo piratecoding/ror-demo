@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+	before_action :authorize
 	helper_method :sort_column, :sort_direction
 	before_action :find_product, { only: [:edit, :update, :show, :destroy] }
 

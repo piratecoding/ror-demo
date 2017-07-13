@@ -32,8 +32,9 @@
 	</tbody>
 </table>
 
-<%= link_to 'Edit', edit_seller_path(@seller), class: 'btn btn-sm btn-primary' %> |
-<%= link_to 'Back', sellers_path, class: 'btn btn-sm btn-primary' %>
+<%= link_to 'Edit', edit_seller_path, class: 'btn btn-sm btn-primary' %> |
+<%= link_to 'Back', sellers_path, class: 'btn btn-sm btn-primary' %> |
+<%= link_to 'Delete this seller', seller_path, method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-sm btn-primary' %>
 
 	</div>
 </div>

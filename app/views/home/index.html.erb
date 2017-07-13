@@ -2,10 +2,12 @@
   <div class="container">
     <h1><%= @ror_title %></h1>
 		<h3><%= @ror_subtitle %></h3>
+		<%= display_flash :notice %>
 		<br>
 		<h3>You can choose from <%= @p_count %> different products. <%= link_to 'Start shopping now!', products_path %> </h3>
   </div>
 </div>
+
 
 
 

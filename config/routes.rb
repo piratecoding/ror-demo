@@ -16,6 +16,9 @@ Rails.application.routes.draw do
     resources :products, :categories
   end
   resources :categories
+  resources :users, only: [:new, :create]
+  resource :session, only: [:new, :create, :destroy]
+  # resource jer mozemo imati samo jednu sesiju
   # Ovo se najcesce koristi
 
   # resources :products, only: [:index, :edit, :new]
