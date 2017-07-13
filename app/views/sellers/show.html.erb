@@ -1,18 +1,40 @@
 <div class="row">
 	<div class="col-md-6">
-	<p><strong>Name:</strong></p>
-	<p><%= @seller.name %></p>
-	<br>
-	<p><strong>Rating:</strong></p>
-	<p><%= @seller.rating %></p>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>
+				<strong>Name of the seller: </strong>
+			</th>	
+			<th>
+				<strong>Rating: </strong>
+			</th>
+			<th>
+				<strong>List of products: </strong>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<td>
+			<%= @seller.name %>
+		</td>
+		<td>
+			<%= @seller.rating %>
+		</td>
+		<td>
+			<% @seller.products.each do |product| %>
+    		<p> 
+        	<%= product.name %>
+    		</p>
+			<% end %>
+		</td>
+	</tbody>
+</table>
+
+<%= link_to 'Edit', edit_seller_path(@seller), class: 'btn btn-sm btn-primary' %> |
+<%= link_to 'Back', sellers_path, class: 'btn btn-sm btn-primary' %>
+
 	</div>
 </div>
-<b>Products selling:</b>
-<% @seller.products.each do |product| %>
-    <p>        
-        <%= product.name %>
-    </p>
-<% end %>
 
-<%= link_to 'Edit', edit_seller_path(@seller) %> |
-<%= link_to 'Back', sellers_path %>

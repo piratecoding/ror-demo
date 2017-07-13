@@ -1,15 +1,42 @@
 <div class="row">
 	<div class="col-md-6">
-	<p><strong>Name:</strong></p>
-	<p><%= @product.name %></p>
-	<br>
-	<p><strong>Price:</strong></p>
-	<p><%= @product.price %></p>
-	<br>
-	<p><strong>Category:</strong></p>
-	<p><%= @product.category.name %></p>
-	<br>
-	<p><strong>Description:</strong></p>
-	<p><%= @product.description %></p>
+
+	<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>
+				<strong>Name: </strong>
+			</th>	
+			<th>
+				<strong>Price: </strong>
+			</th>
+			<th>
+				<strong>Category: </strong>
+			</th>
+			<th>
+				<strong>Description: </strong>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<td>
+			<%= @product.name %>
+		</td>
+		<td>
+			<%= @product.price %>
+		</td>
+		<td>
+			<%= @product.category.name %>
+		</td>
+		<td>
+			<%= @product.description %>
+		</td>
+	</tbody>
+</table>
+
+<%= link_to 'Edit', edit_product_path(@product), class: 'btn btn-sm btn-primary' %> |
+<%= link_to 'Back', products_path, class: 'btn btn-sm btn-primary' %>
+
 	</div>
 </div>
+

@@ -1,26 +1,39 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+	<div class="col-md-6">
 
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>
+				<strong>Name of the category: </strong>
+			</th>	
+			<th>
+				<strong>Description: </strong>
+			</th>
+			<th>
+				<strong>List of products in this category: </strong>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<td>
+			<%= @category.name %>
+		</td>
+		<td>
+			<%= @category.description %>
+		</td>
+		<td>
+			<% @category.products.each do |product| %>
+    		<p> 
+        	<%= product.name %>
+    		</p>
+			<% end %>
+		</td>
+	</tbody>
+</table>
 
-<p>
-  <strong>Description:</strong>
-  <%= @category.description %>
-</p>
+<%= link_to 'Edit', edit_category_path(@category), class: 'btn btn-sm btn-primary' %> |
+<%= link_to 'Back', categories_path, class: 'btn btn-sm btn-primary' %>
 
-
-<p>
-	List of products: 
-	<% @category.products.each do |product| %>
-    <p>
-        <%= product.name %>
-    </p>
-	<% end %>
-</p>
-
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
-
+</div>
+</div>
