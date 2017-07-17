@@ -25,5 +25,8 @@ Rails.application.routes.draw do
   # resources :products, except: [:index]
   # Ako hocemo samo neke pojedinacne/ako hocemo sve osim neke
 
-
+  namespace :admin do 
+    resource :dashboard, only: [:show]
+    resources :products
+  end
 end

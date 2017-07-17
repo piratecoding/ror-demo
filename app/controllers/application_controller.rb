@@ -11,7 +11,22 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
+  def logged_in?
+    current_user    
+  end
+
+  helper_method :logged_in?
+
+  protected
+
   def authorize
   	redirect_to new_session_path unless  current_user  		
+  end
+
+  def authorize_for_admins
+    unless current_user.admin?
+      flash[:notice] = 'Unauthorize access!'
+      redirect_to root_path
+    end 
   end
 end
