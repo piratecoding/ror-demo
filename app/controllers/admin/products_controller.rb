@@ -52,7 +52,7 @@ class Admin::ProductsController < Admin::BaseController
 	def destroy
 		@product.destroy
 		flash[:notice] = 'Product deleted successfully!'
-		redirect_to admins_products_path		
+		redirect_to admin_products_path		
 	end
 
 	private
@@ -74,4 +74,3 @@ class Admin::ProductsController < Admin::BaseController
 	end
 end
 
-end

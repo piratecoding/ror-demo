@@ -5,6 +5,9 @@ class User < ApplicationRecord
 	ROLE_USER = 0
 	ROLE_ADMIN = 1
 
+	has_many :orders
+	has_many :purchased_products, through: :orders, source: :product
+
 	validates_presence_of :username, :email
 	validates_uniqueness_of :username, :email
 	# attr_accessor :password, :password_confirmation

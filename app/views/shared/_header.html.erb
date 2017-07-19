@@ -6,17 +6,21 @@
 	<li class="<%= 'active' if params[:action] == 'index' %>"><%= link_to 'Categories', categories_path %></li>
 	<li class="<%= 'active' if params[:action] == 'index' %>"><%= link_to 'Sellers', sellers_path %></li>
 
-
-	<% if current_user %>
-		<li><%= current_user.username %></li>
-	<%  end %>
-
-	<% unless current_user %>
-		<li><%= link_to "Login", new_session_path %></li>
-	<%  end %>
-	
-	<% if current_user %>
-		<li><%= link_to "Logout", session_path, method: :delete %></li>
-	<%  end %>
-
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <% unless logged_in? %>
+        <li><%= link_to 'Login', new_session_path %></li>
+        <li><%= link_to 'Register', new_user_path %></li>
+      <% else %>
+        <li class="dropdown">
+          <a data-toggle="dropdown" class="dropdown-toggle" href="#">Logged in as: <%= current_user.username %> <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <% if current_user.admin? %>
+              <li><%= link_to 'Dashboard', admin_dashboard_path %></li>
+            <% end %>
+            <li><%= link_to 'Logout', session_path, method: :delete %></li>
+          </ul>
+        </li>
+      <% end %>
+</ul>
 </ol>

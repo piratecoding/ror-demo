@@ -6,6 +6,12 @@ class ProductsController < ApplicationController
 	def index
 		@products = Product.all
 		@products = Product.order(sort_column + " " + sort_direction)
+
+		respond_to do |format|
+			format.html
+			format.json { render :json => @products.to_json }
+			format.json { render :xml => @products.to_xml }
+		end
 	end
 
 	def new

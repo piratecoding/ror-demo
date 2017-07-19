@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :users, only: [:new, :create]
   resource :session, only: [:new, :create, :destroy]
+  resources :orders
   # resource jer mozemo imati samo jednu sesiju
   # Ovo se najcesce koristi
 
